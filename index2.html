@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragonball</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css  ">
     <style>
         body{
             text-align: left;
@@ -25,8 +26,10 @@
     <h1>Dragonball izé</h1>
     
     <button onclick="getdrag()">Kép lekérése</button>
-    <div id="image_container" >
-        <div class="row" id="elso"></div>
+    <div class="card-body" id="image_container" >
+        <div class="row" >
+
+        </div>
         
         
     </div>
@@ -44,7 +47,7 @@
             for(var i=0; i<5; i++){
                 var imgurl = data.items[i].image
                 if(i<4){
-                    document.getElementById('image_container').innerHTML+=`<img src='${imgurl}' alt="gokuizé" />`
+                    document.getElementById('image_container').innerHTML+=`<img class="card-image" src='${imgurl}' alt="gokuizé" />`
                 }
                 
             }
@@ -63,12 +66,18 @@
                         <p>name: ${breed.name}$</p>
                         <p>base ki:: ${breed.ki}<</p>
                         <p>total ki:: ${breed.maxKi}</p>
-                        <p>afilliation: ${breed.race}</p>
+                        <p>race: ${breed.race}</p>
                         <p>gender: ${breed.gender}</p>
                         <p>description: ${breed.description}</p>
+                        <p>image:</p>
+                        <p>affiliation: </p>
                     </div>
                 `
             }
+            else{
+                breedinfo="<p>Nincs kép információ</p>"
+            }
+            document.getElementById("image_container").innerHTML=`<img src="${imgurl}"/>`;
         
 
 
