@@ -6,7 +6,7 @@
     <title>Dragonball</title>
     <style>
         body{
-            text-align: center;
+            text-align: left;
             padding: 2rem;
 
         }
@@ -22,6 +22,8 @@
     </style>
 </head>
 <body>
+    <h1>Dragonball izé</h1>
+    
     <button onclick="getdrag()">Kép lekérése</button>
     <div id="image_container">
         
@@ -30,12 +32,14 @@
     <script>
         
         async function getdrag(){
-            const res = await fetch('"https://dragonball-api.com/api/characters?limit=10"', {
-                headers: {  
-                    "x-api-key": apikey
-                }
+            const res = await fetch('"https://dragonball-api.com/api/characters?limit=5"', {
+                
             });
             //
+            const data = await res.json();
+            const drag = data[0]; 
+            const imgurl = drag.items[0].image;
+            document.querySelector("#asd").innerHTML=`<img src="${imgurl}" alt="gokuizé" title="gokuizé"`
            
            
            
