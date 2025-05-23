@@ -25,26 +25,35 @@
     <h1>Dragonball izé</h1>
     
     <button onclick="getdrag()">Kép lekérése</button>
-    <div id="container_fluid" id="asd">
+    <div id="image_conainer" >
+        <div class="row" id="elso"></div>
         
         
     </div>
     <script>
         
         async function getdrag(){
-            const res = await fetch("https://dragonball-api.com/api/characters?limit=10", {
+            const res = await fetch("https://dragonball-api.com/api/characters?limit=6", {
                 
             });
             
 
 
             const data = await res.json();
+
+            for(var i=0; i<5; i++){
+                var imgurl = data.items[1].image
+                if(i<4){
+                    document.getElementById('image_container').innerHTML+=`<img src='${imgurl}' alt="gokuizé" />`
+                }
+                
+            }
             
             
-            const imgurl = data.items[1].image
             
             
-            document.querySelector("#asd").innerHTML=`<img src="${imgurl}" alt="gokuizé" title="gokuizé"`
+            
+           
            
            
             let breedinfo = "";
