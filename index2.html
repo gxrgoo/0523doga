@@ -32,17 +32,31 @@
     <script>
         
         async function getdrag(){
-            const res = await fetch('"https://dragonball-api.com/api/characters?limit=5"', {
+            const res = await fetch("https://dragonball-api.com/api/characters?limit=10", {
                 
             });
             //
             const data = await res.json();
-            const drag = data[0]; 
-            const imgurl = drag.items[0].image;
+            
+            const imgurl = drag.items[1].image;
+            
+            
             document.querySelector("#asd").innerHTML=`<img src="${imgurl}" alt="gokuizé" title="gokuizé"`
            
            
-           
+            let breedinfo = "";
+            if (breed){
+                breedinfo = `
+                    <div class="breed-info">
+                        <p>name: ${breed.name}$</p>
+                        <p>base ki:: ${breed.ki}<</p>
+                        <p>total ki:: ${breed.maxKi}</p>
+                        <p>afilliation: ${breed.race}</p>
+                        <p>gender: ${breed.gender}</p>
+                        <p>description: ${breed.description}</p>
+                    </div>
+                `;
+            }
         
 
 
