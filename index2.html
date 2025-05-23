@@ -4,87 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragonball</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css  ">
-    <style>
-        body{
-            text-align: left;
-            padding: 2rem;
-
-        }
-        img{
-            max-width: 400px;
-            border-radius: 10px;
-            
-        }
-        .breed-info{
-            margin-top: 1rem;
-
-        }
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
-<body>
-    <h1>Dragonball izé</h1>
-    
-    <button onclick="getdrag()">Kép lekérése</button>
-    <div class="card-body" id="image_container" >
-        <div class="row" >
-
+<body class="bg-light">
+    <div class="container py-4">
+        <h1 class="mb-4 text-center">Dragonball karakterek</h1>
+        <div class="text-center mb-4">
+            <button class="btn " id="lekeres" onclick="getdrag()">Képek lekérése</button>
         </div>
-        
-        
+        <div class="row gy-4" id="image_container">
+           
+        </div>
     </div>
+
     <script>
-        
-        async function getdrag(){
-            const res = await fetch("https://dragonball-api.com/api/characters?limit=6", {
-                
-            });
-            
-
-
+        async function getdrag() {
+            const res = await fetch("https://dragonball-api.com/api/characters?limit=6");
             const data = await res.json();
 
-            for(var i=0; i<5; i++){
-                var imgurl = data.items[i].image
-                if(i<4){
-                    document.getElementById('image_container').innerHTML+=`<img class="card-image" src='${imgurl}' alt="gokuizé" />`
-                }
-                
-            }
-            
-            
-            
-            
-            
-           
-           
-           
-            let breedinfo = "";
-            if (breed){
-                breedinfo = `
-                    <div class="breed-info">
-                        <p>name: ${breed.name}$</p>
-                        <p>base ki:: ${breed.ki}<</p>
-                        <p>total ki:: ${breed.maxKi}</p>
-                        <p>race: ${breed.race}</p>
-                        <p>gender: ${breed.gender}</p>
-                        <p>description: ${breed.description}</p>
-                        <p>image:</p>
-                        <p>affiliation: </p>
+            const container = document.getElementById("image_container");
+            container.innerHTML = ""; 
+
+            data.items.forEach(karakter => {
+                const card = `
+                <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <img src="${karakter.image}" class="card-img-top" alt="${karakter.name}">
+                        
+                        </div>
                     </div>
-                `
-            }
-            else{
-                breedinfo="<p>Nincs kép információ</p>"
-            }
-            document.getElementById("image_container").innerHTML=`<img src="${imgurl}"/>`;
-        
-
-
+                </div>`;
+                container.innerHTML += card;
+            });
         }
-        
     </script>
-   
-    
 </body>
 </html>

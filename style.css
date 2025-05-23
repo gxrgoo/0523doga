@@ -1,0 +1,24 @@
+body{
+    text-align: left;
+    padding: 2rem;
+    background-color: beige;
+
+}
+img{
+    max-width: 400px;
+    border-radius: 10px;
+    
+}
+.breed-info{
+    margin-top: 1rem;
+
+}
+
+#lekeres{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
