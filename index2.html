@@ -25,7 +25,7 @@
     <h1>Dragonball izé</h1>
     
     <button onclick="getdrag()">Kép lekérése</button>
-    <div id="image_container">
+    <div id="container_fluid" id="asd">
         
         
     </div>
@@ -35,10 +35,13 @@
             const res = await fetch("https://dragonball-api.com/api/characters?limit=10", {
                 
             });
-            //
+            
+
+
             const data = await res.json();
             
-            const imgurl = drag.items[1].image;
+            
+            const imgurl = data.items[1].image
             
             
             document.querySelector("#asd").innerHTML=`<img src="${imgurl}" alt="gokuizé" title="gokuizé"`
@@ -55,7 +58,7 @@
                         <p>gender: ${breed.gender}</p>
                         <p>description: ${breed.description}</p>
                     </div>
-                `;
+                `
             }
         
 
