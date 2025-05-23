@@ -22,6 +22,29 @@
     </style>
 </head>
 <body>
+    <button onclick="getdrag()">Kép lekérése</button>
+    <div id="image_container">
+        
+        
+    </div>
+    <script>
+        
+        async function getdrag(){
+            const res = await fetch('"https://dragonball-api.com/api/characters?limit=10"', {
+                headers: {  
+                    "x-api-key": apikey
+                }
+            });
+            //
+           
+           
+           
+        
+
+
+        }
+        
+    </script>
    
     
 </body>
