@@ -10,9 +10,9 @@
     <div class="container py-4">
         <h1 class="mb-4 text-center">Dragonball karakterek</h1>
         <div class="text-center mb-4">
-            <button class="btn " id="lekeres" onclick="getdrag()">Képek lekérése</button>
+            <button class="btn  " id="lekeres" onclick="getdrag()">Képek lekérése</button>
         </div>
-        <div class="row gy-4" id="image_container">
+        <div class="row gy-4 " id="image_container">
            
         </div>
     </div>
@@ -30,7 +30,15 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow">
                         <img src="${karakter.image}" class="card-img-top" alt="${karakter.name}">
-                        
+                        <div class="card-body">
+                            <h5 class="card-title">${karakter.name}</h5>
+                            <p class="card-text"><strong>Faj:</strong> ${karakter.race}</p>
+                            <p class="card-text"><strong>Gender:</strong> ${karakter.gender}</p>
+                            <p class="card-text"><strong>Ki (alap/max):</strong> ${karakter.ki} / ${karakter.maxKi}</p>
+                            <p class="card-text"><strong>Description:</strong> ${karakter.description || "noinfo"}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"><strong>Affiliaton::</strong> ${karakter.affiliation || "nincs"}</small>
                         </div>
                     </div>
                 </div>`;
